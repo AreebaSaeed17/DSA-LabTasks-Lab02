@@ -102,7 +102,7 @@ bool isSorted(const int* arr, const int size){
     // handle any array with 1 element only
   
     if(size <= 1){
-         std::cout<<" There aren't enough elements in the array to be checked.\n";
+         std::cout<<"\nThere aren't enough elements in the array to be checked.";
          std::cout<<"The array is considered sorted according to C++ rules.\n";
           return true;
     }
@@ -115,7 +115,7 @@ bool isSorted(const int* arr, const int size){
 
         if( arr[i]>arr[i+1] ) {
             istrue = false;         // end the program as soon as there's one misplaced element
-            std::cout<<" This array is not sorted.\n";
+            std::cout<<" \nThis array is not sorted.\n";
             return false;
            
         }
@@ -127,7 +127,7 @@ bool isSorted(const int* arr, const int size){
     
     // if the program reaches this line that means all above was passed
     // hence the array must be sorted
-    std::cout<<"Given array is Sorted.";
+    std::cout<<"\nGiven array is Sorted.\n";
     return true;
     
 }
@@ -144,7 +144,7 @@ int main(){
     test_AllElementsSame_Array();
     testEmptyArray();
 
-    cout << "All tests passed!" << endl;
+    cout << "\nAll test cases passed!\n" << endl;
 
     return 0;
 }
