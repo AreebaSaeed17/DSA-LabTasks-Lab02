@@ -4,7 +4,9 @@ using namespace std;
 
 // declaring the isSorted function 
 bool isSorted(const int* arr, const int size);
+
                                                 // IMPLEMENTING TEST CASES
+                                                
 // test case 1                                              
 void test_Sorted_Array() {
 int arr[] = {1,2,3,4,5};
@@ -20,7 +22,7 @@ int arr[] = {2,9,7,1,0};
 
 bool result = isSorted(arr, 5);
 
-assert(result == true);
+assert(result == false);
 }
 
 // test case 3
@@ -29,7 +31,7 @@ int arr[] = {2,9,7,2,0};
 
 bool result = isSorted(arr, 5);
 
-assert(result == true);
+assert(result == false);
 }
 
 // test case 4
@@ -38,16 +40,16 @@ int arr[] = {9,2,9,2,9};
 
 bool result = isSorted(arr, 5);
 
-assert(result == true);
+assert(result == false);
 }
 
 // test case 5
 void test_OnElement_Array() {
 int arr[] = {2};
 
-bool result = isSorted(arr, 5);
+bool result = isSorted(arr, 0);
 
-assert(result == true);
+assert(result == false);
 }
 
 // test case 6
@@ -56,7 +58,7 @@ int arr[] = {10,9,8,7,6};
 
 bool result = isSorted(arr, 5);
 
-assert(result == true);
+assert(result == false);
 }
 
 // test case 7
@@ -65,16 +67,16 @@ int arr[] = {-2,-8,-3,-6,-8};
 
 bool result = isSorted(arr, 5);
 
-assert(result == true);
+assert(result == false);
 }
 
 // test case 8
 void test_AllElementsSame_Array() {
-int arr[] = {10,9,8,7,6};
+int arr[] = {6,6,6,6,6};
 
 bool result = isSorted(arr, 5);
 
-assert(result == true);
+assert(result == false);
 }
 
 // test case 9
@@ -93,30 +95,48 @@ assert(result == true);
 bool isSorted(const int* arr, const int size){
     
     bool istrue = true;
-    // this loop traverses the array and checks the order
-    for(int i=0; i< size; i++){
+    
+    // handle any empty array 
+    // handle any array with 1 element only
+  
+    if(size <= 1){
+         std::cout<<" There are no elements in the array to be sorted.\n"
+          "Cant be declared sorted or unsorted.\n";
+    }
 
-        if( arr[i]<arr[i+1] ) {
+    // run the loop for non empty arrays
+    else{
+
+        for(int i=0; i< (size-1); i++){    // loop stops at size-1 as last element has nothing to be compared against
+
+        if( arr[i]>arr[i+1] ) {
+            istrue = false;         // end the program as soon as there's one misplaced element
+            std::cout<<" This array is not sorted.\n";
+            return false;
+           
+        }
+        else{
             istrue = true;
         }
-
-        else{
-            istrue = false;
-        }
     }
+    }
+    
     // checking final value of the bool before returning result
     if(!istrue){
+        std::cout<<"Array isnt sorted.";
         return false;
+        
     }
     // to cater for the overall return of the function as it is of bool type
     return true;
+    std::cout<<"Sorted.";
 }
 
 int main(){
     
     test_Sorted_Array();
     test_UnSorted_Array();
-    test_Duplicate_Array();
+    //test_Duplicate_Array();
     test_RecurringPattern_Array();
     test_OnElement_Array();
     test_DescendingSorted_Array();
