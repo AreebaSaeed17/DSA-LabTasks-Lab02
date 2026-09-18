@@ -85,7 +85,27 @@ assert(result == true);
 }
 
 
-
+// the core logic function
 bool isSorted(const int* arr, const int size){
 
+    // receive ptr to an array and its size
+    // compare the elements to make sure its arranged in an ascending order
+    bool istrue = true;
+    for(int i=0; i< size; i++){
+
+        if( arr[i]<arr[i+1] ) {
+            istrue = true;
+        }
+
+        else{
+            istrue = false;
+        }
+    }
+    // checking final value of the bool before returning result
+    if(!istrue){
+        return false;
+        return;
+    }
+    // to cater for the overall return of the function as it is of bool type
+    return true;
 }
