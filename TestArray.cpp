@@ -2,6 +2,8 @@
 #include<assert.h>
 using namespace std;
 
+// declaring the isSorted function 
+bool isSorted(const int* arr, const int size);
                                                 // IMPLEMENTING TEST CASES
 // test case 1                                              
 void test_Sorted_Array() {
@@ -86,11 +88,12 @@ assert(result == true);
 
 
 // the core logic function
+// receive ptr to an array and its size
+// compare the elements to make sure its arranged in an ascending order
 bool isSorted(const int* arr, const int size){
-
-    // receive ptr to an array and its size
-    // compare the elements to make sure its arranged in an ascending order
+    
     bool istrue = true;
+    // this loop traverses the array and checks the order
     for(int i=0; i< size; i++){
 
         if( arr[i]<arr[i+1] ) {
@@ -104,8 +107,24 @@ bool isSorted(const int* arr, const int size){
     // checking final value of the bool before returning result
     if(!istrue){
         return false;
-        return;
     }
     // to cater for the overall return of the function as it is of bool type
     return true;
+}
+
+int main(){
+    
+    test_Sorted_Array();
+    test_UnSorted_Array();
+    test_Duplicate_Array();
+    test_RecurringPattern_Array();
+    test_OnElement_Array();
+    test_DescendingSorted_Array();
+    test_NegElements_Array();
+    test_AllElementsSame_Array();
+    testEmptyArray();
+
+    cout << "All tests passed!" << endl;
+
+    return 0;
 }
