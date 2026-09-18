@@ -104,7 +104,7 @@ bool isSorted(const int* arr, const int size){
     if(size <= 1){
          std::cout<<" There aren't enough elements in the array to be checked.\n";
          std::cout<<"The array is considered sorted according to C++ rules.\n";
-          return false;
+          return true;
     }
 
     // run the loop for non empty arrays
@@ -125,15 +125,11 @@ bool isSorted(const int* arr, const int size){
     }
     }
     
-    // checking final value of the bool before returning result
-    if(!istrue){
-        std::cout<<"Array isnt sorted.";
-        return false;
-        
-    }
-    // to cater for the overall return of the function as it is of bool type
+    // if the program reaches this line that means all above was passed
+    // hence the array must be sorted
+    std::cout<<"Given array is Sorted.";
     return true;
-    std::cout<<"Sorted.";
+    
 }
 
 int main(){
